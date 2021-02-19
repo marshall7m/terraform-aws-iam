@@ -1,27 +1,27 @@
 include {
-    path = find_in_parent_folders("aws.hcl")
+  path = find_in_parent_folders("aws.hcl")
 }
 
 terraform {
-    source = "../../modules//iam-roles"
+  source = "../../modules//iam-roles"
 }
 
 inputs = {
-    roles = [
+  roles = [
+    {
+      role_name = "foo-role"
+      statements = [
         {
-            role_name = "foo-role"
-            statements = [
-                {
-                    effect = "Allow"
-                    actions = ["s3:GetObject"]
-                    resources = ["*"]
-                },
-                {
-                    effect = "Allow"
-                    actions = ["s3:PutObject"]
-                    resources = ["*"]
-                }
-            ]
+          effect    = "Allow"
+          actions   = ["s3:GetObject"]
+          resources = ["*"]
+        },
+        {
+          effect    = "Allow"
+          actions   = ["s3:PutObject"]
+          resources = ["*"]
         }
-    ]
+      ]
+    }
+  ]
 }

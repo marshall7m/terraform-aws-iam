@@ -1,6 +1,6 @@
 locals {
   # TODO: Replace merge workaround when issue is fixed: https://github.com/hashicorp/terraform/issues/27385
-  statements = [for statement in var.statements: merge(statement, {conditions = coalesce(statement.conditions, [])})]
+  statements = [for statement in var.statements : merge(statement, { conditions = coalesce(statement.conditions, []) })]
 }
 
 data "aws_iam_policy_document" "permissions" {

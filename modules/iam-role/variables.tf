@@ -103,11 +103,11 @@ variable "statements" {
     effect    = string
     resources = list(string)
     actions   = list(string)
-    conditions = optional(list(map(object({
+    conditions = optional(list(object({
       test     = string
       variable = string
       values   = list(string)
-    }))))
+    })))
   }))
   default = []
 }
