@@ -1,4 +1,7 @@
-#### PERMISSION-POLICIES
+locals {
+  # TODO: Replace merge workaround when issue is fixed: https://github.com/hashicorp/terraform/issues/27385
+  statements = [for statement in var.statements: merge(statement, {conditions = coalesce(statement.conditions, [])})]
+}
 
 data "aws_iam_policy_document" "permissions" {
   count = var.allowed_resources != null && var.allowed_actions != null || local.statements != [] ? 1 : 0
