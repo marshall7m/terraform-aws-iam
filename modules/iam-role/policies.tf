@@ -56,7 +56,6 @@ resource "aws_iam_role_policy_attachment" "custom_permissions" {
 #### TRUST-POLICIES ####
 
 data "aws_iam_policy_document" "assume_role_with_mfa" {
-  count = var.role_requires_mfa ? 1 : 0
   statement {
     effect = "Allow"
 
@@ -91,7 +90,6 @@ data "aws_iam_policy_document" "assume_role_with_mfa" {
 }
 
 data "aws_iam_policy_document" "assume_role" {
-  count = var.role_requires_mfa != true ? 1 : 0
   statement {
     effect = "Allow"
 
