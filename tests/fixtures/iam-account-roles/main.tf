@@ -5,13 +5,13 @@ locals {
 module "mut_iam_account_roles" {
   source = "../../../modules//iam-account-roles"
 
-  admin_role_cross_account_ids = [local.account_id]
+  admin_role_cross_account_ids  = [local.account_id]
   custom_admin_role_policy_arns = ["arn:aws:iam::aws:policy/AdministratorAccess"]
 
-  dev_role_cross_account_ids = [local.account_id]
+  dev_role_cross_account_ids  = [local.account_id]
   custom_dev_role_policy_arns = ["arn:aws:iam::aws:policy/PowerUserAccess"]
 
-  read_role_cross_account_ids = [local.account_id]
+  read_role_cross_account_ids  = [local.account_id]
   custom_read_role_policy_arns = ["arn:aws:iam::aws:policy/ReadOnlyAccess"]
 
   tf_plan_role_cross_account_ids = [local.account_id]
