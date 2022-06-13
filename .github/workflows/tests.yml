@@ -76,4 +76,4 @@ jobs:
         id: pytest
         shell: bash
         run: |
-          pytest -vv tests/unit
+          pytest -vv tests
