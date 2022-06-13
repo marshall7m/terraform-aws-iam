@@ -90,7 +90,7 @@ resource "aws_iam_policy" "dev_permissions" {
 }
 
 resource "aws_iam_role_policy_attachment" "dev_permissions" {
-  count = var.dev_allowed_resources != null && var.dev_allowed_actions != null || var.dev_statements != [] ? 1 : 0
+  count      = var.dev_allowed_resources != null && var.dev_allowed_actions != null || var.dev_statements != [] ? 1 : 0
   role       = aws_iam_role.dev[0].name
   policy_arn = aws_iam_policy.dev_permissions[0].arn
 }
